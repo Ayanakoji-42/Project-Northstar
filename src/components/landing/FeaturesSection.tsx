@@ -40,10 +40,11 @@ const features = [
     color: "#f59e0b", size: "small",
     preview: (
       <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 3, marginTop: 12 }}>
-        {Array.from({ length: 28 }, (_, i) => {
-          const h = i < 22 ? (Math.random() > 0.3 ? Math.floor(Math.random() * 4) + 1 : 0) : 0;
-          return <div key={i} className={`heat-cell heat-${h}`} />;
-        })}
+       {[2, 1, 3, 0, 4, 2, 1, 3, 4, 0, 2, 1, 4, 3, 2, 0, 1, 4, 3, 2, 1, 3, 0, 0, 0, 0, 0, 0].map(
+  (h, i) => (
+    <div key={i} className={`heat-cell heat-${h}`} />
+  )
+)}
       </div>
     ),
   },

@@ -47,7 +47,10 @@ export default function AppSidebar() {
             </div>
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontWeight: 600, fontSize: "0.875rem", truncate: true }}>{USER.name}</div>
+            <div 
+             className="truncate"
+             style={{ fontWeight: 600, fontSize: "0.875rem"}}
+            ></div>
             <div style={{ color: "var(--purple)", fontSize: "0.72rem", fontWeight: 600 }}>{USER.title}</div>
           </div>
           <div style={{ textAlign: "right" }}>

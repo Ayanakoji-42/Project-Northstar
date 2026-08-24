@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import type { Metadata } from "next";
 
 const QUOTES = [
@@ -60,8 +60,12 @@ function CircleProgress({ pct, size = 120, stroke = 10, color = "#3b82f6" }: { p
 
 export default function HQPage() {
   const [quests, setQuests] = useState(QUESTS);
-  const [quote] = useState(QUOTES[Math.floor(Math.random() * QUOTES.length)]);
+  const [quote, setQuote] = useState(QUOTES[0]);
   const [xpAnim, setXpAnim] = useState(false);
+ 
+  useEffect(() => {
+    setQuote(QUOTES[Math.floor(Math.random() * QUOTES.length)]);
+  }, []);
 
   const completed = quests.filter(q => q.done).length;
   const completedPct = Math.round((completed / quests.length) * 100);
@@ -253,3 +257,4 @@ export default function HQPage() {
     </div>
   );
 }
+
